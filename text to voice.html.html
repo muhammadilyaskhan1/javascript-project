@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to javscript mini project text to speech</title>
+</head>
+<style>
+    *{
+        margin: 0; padding: 0px;
+        font-family: 'Courier New', Courier, monospace;
+        box-sizing: border-box;
+    }
+    .hero{
+        width: 100%; min-height: 100vh;
+        background: linear-gradient(100deg,#010758,#490d61);
+        display: flex;
+        align-items: center; justify-content: center;
+         flex-direction: column;  
+    }
+    .hero h1{
+        font-size: 45px; font-weight: 500; margin-top: -50px; 
+        margin-bottom: 50px;
+        color:white
+    }
+    .hero h1 span{
+        color: #c35959;
+    }
+    textarea{
+        width: 600px; height: 250px;
+        background: #403d84;
+        color:#fff; font-size: 15px;
+        border: none; outline: none;
+        padding: 20px;
+        border-radius: 10px;
+        resize: none;
+        margin-bottom: 30px;
+    }
+    textarea::placeholder{
+        color: #ddd;
+        font-size: 16px;
+    }
+    .row{
+        width: 600px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    button{
+        background-color: #ff2963;
+        color: #fff; font-size: 16px;
+        padding: 10px 30px;
+        border-radius: 35px;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    button img{
+        width: 36px;
+        margin-right: 10px;
+    }
+    select{
+        flex: 1;
+        color: #fff;
+        height: 50px;
+        outline: 0; border: 0;
+        border-radius: 34px;
+        background: #403d84;
+        padding: 0px 20px;
+    }
+</style>
+<script>
+    function convertToSpeech(){
+        const textinput=document.getElementById('text-to-speech-input').value;
+        if('speechSynthesis'in window){
+          const  Synthesis=window.speechSynthesis;
+         const Utterance= new SpeechSynthesisUtterance(textinput);
+        Synthesis.speak(Utterance);
+        }else{
+            alert(" browser is not working")
+        }
+
+
+
+        }
+
+
+
+
+    
+    
+     
+        </script>
+<body>
+    <div class="hero">
+<h1>text to  speech <span> converter</span> </h1>
+<textarea id="text-to-speech-input"  placeholder="write anything here "></textarea>
+<div class="row"> 
+<!-- <select name="" id=""></select> -->
+<button onclick="convertToSpeech()">Convert to Speech</button>
+ 
+</div>
+    </div>
+
+
+ 
+</body>
+</html> 
